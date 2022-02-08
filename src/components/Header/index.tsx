@@ -7,11 +7,11 @@ export function Header() {
   return (
     <Wrapper>
       <Container>
-        <Link>
+        <Link to="/">
           <Logo>Logo</Logo>
         </Link>
 
-        <Link rounded hover>
+        <Link rounded hover to="/cart">
           <FiShoppingCart size={18} />
         </Link>
       </Container>
