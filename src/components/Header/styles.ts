@@ -23,17 +23,4 @@ export const Logo = styled.h1`
   font-family: 'Roboto';
   margin: 0 0 0 auto;
 `
-export const ButtonCart = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  border-radius: ${({ theme }) => theme.radius.rounded};
-  cursor: pointer;
-  margin: 0 0 0 auto;
-  transition: all .2s ease-in-out;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.gray}
-  }
-`;
