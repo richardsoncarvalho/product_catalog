@@ -1,10 +1,10 @@
 import { Container, Props } from "./styles";
 
 type RouterLinkProps = Props & {
-  children?: JSX.Element
+  children?: JSX.Element | string
 }
 
-export function Link({ children, rounded, hover, ...args }: RouterLinkProps) {
+export function Link({ children = "my link", rounded, hover, ...args }: RouterLinkProps) {
   return (
       <Container rounded={rounded} hover={hover} {...args}>
         {children}
