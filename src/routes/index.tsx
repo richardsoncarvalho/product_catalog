@@ -1,11 +1,13 @@
-import { Routes as Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Routes as Switch, Route } from 'react-router-dom'
 
 import { Home } from '../pages/Home'
 
 export function Routes() {
   return (
-    <Switch>
-      <Route path="/" element={<Home />} />
-    </Switch>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" element={<Home />} />
+      </Switch>
+    </BrowserRouter>
   )
 }
