@@ -4,6 +4,7 @@ const SPACING = 15;
 export default {
   colors: {
     white: '#FFF',
+    gray: '#f1f1f1',
     blue: {
       default: '#006CAD',
       light: '#4F93D5'
