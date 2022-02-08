@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components'
 export default createGlobalStyle`
   *, *::after, *::before {
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
   }
 
   html, body, div, span, applet, object, iframe,
