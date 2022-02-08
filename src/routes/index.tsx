@@ -4,6 +4,7 @@ import { Header } from '../components/Header'
 import { Home } from '../pages/Home'
 import { Cart } from '../pages/Cart'
 import { Container } from './styles'
+import { ProductProvider } from '../providers/products'
 
 export function Routes() {
   return (
@@ -12,7 +13,14 @@ export function Routes() {
 
       <Container>
         <Switch>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <ProductProvider>
+                <Home />
+              </ProductProvider>
+            } />
+
           <Route path="/cart" element={<Cart />} />
         </Switch>
       </Container>
