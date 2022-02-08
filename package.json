@@ -45,6 +45,10 @@
     ]
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/history": "^5.0.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/styled-components": "^5.1.22",
     "git-commit-msg-linter": "^4.0.7"
   }
 }
