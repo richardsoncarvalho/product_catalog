@@ -10,7 +10,9 @@ export const Container = styled.div`
   box-shadow: ${({ theme }) => theme.shadow.default};
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  margin-bottom: auto;
+`;
 
 export const Title = styled.h2`
   font-size: 16px;
