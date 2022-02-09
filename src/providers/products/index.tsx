@@ -2,11 +2,17 @@ import { createContext, useEffect, useState } from 'react'
 import { Products } from '../../protocols/products';
 import Service from './services'
 
+type CreateContextProps = {
+  products: Products[]
+}
+
 type ProductProviderProps = {
   children: JSX.Element
 }
 
-export const ProductContext = createContext({});
+export const ProductContext = createContext<CreateContextProps>({
+  products: []
+});
 
 export function ProductProvider({ children }: ProductProviderProps) {
   const [products, setProducts] = useState<Products[]>([])
@@ -26,9 +32,7 @@ export function ProductProvider({ children }: ProductProviderProps) {
   }, [])
 
   return (
-    <ProductContext.Provider value={{
-      products
-    }}>
+    <ProductContext.Provider value={{products}}>
       {children}
     </ProductContext.Provider>
   )
