@@ -28,3 +28,18 @@ export const Logo = styled.h1`
   margin: 0 0 0 auto;
 `
 
+export const Badget = styled.span`
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.green};
+  border-radius: ${({ theme }) => theme.radius.rounded};
+  color: ${({ theme }) => theme.colors.white};
+  display: flex;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+`
+

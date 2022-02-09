@@ -16,6 +16,7 @@ export const Container = styled(Link)<Props>`
   cursor: pointer;
   margin: 0 0 0 auto;
   transition: all .2s ease-in-out;
+  position: relative;
 
   ${({ rounded, theme }) => rounded && `border-radius: ${theme.radius.rounded}`};
 
