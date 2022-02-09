@@ -3,7 +3,7 @@ import { Products } from '../../protocols/products';
 import { Rating } from '../Rating';
 import { Image } from '../Image';
 import { descriptionLimit } from '../../utils/descriptionLimit';
-import { tranformNumberInCurrency } from '../../utils/tranformNumberInCurrency';
+import { transformNumberInCurrency } from '../../utils/transformNumberInCurrency';
 
 type ProductItemProps = {
   product: Products
@@ -17,7 +17,7 @@ export function ProductItem({ product }: ProductItemProps) {
       <Content>
         <Title>{product.title}</Title>
         <Rating rating={product.rating} />
-        <Price>{tranformNumberInCurrency(product.price)}</Price>
+        <Price>{transformNumberInCurrency(product.price)}</Price>
         <Description>{descriptionLimit(product.description)}</Description>
       </Content>
     </Container>

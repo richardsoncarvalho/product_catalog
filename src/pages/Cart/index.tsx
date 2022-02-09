@@ -1,11 +1,12 @@
 import { Card } from "../../components/Card";
+import { Table } from "../../components/Table";
 import { Container } from "./styles";
 
 export function Cart() {
   return (
     <Container>
       <Card>
-        <h1>Teste</h1>
+        <Table />
       </Card>
 
       <Card>

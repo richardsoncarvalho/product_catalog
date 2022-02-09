@@ -1,8 +1,8 @@
-import { tranformNumberInCurrency } from '../../utils/tranformNumberInCurrency'
+import { transformNumberInCurrency } from '../../utils/transformNumberInCurrency'
 
-describe('TranformNumberInCurrency', () => {
+describe('transformNumberInCurrency', () => {
   it('receive number and return currency', () => {
-    const value = tranformNumberInCurrency(99.9);
+    const value = transformNumberInCurrency(99.9);
 
     expect(value).toBe('R$ 99,90')
   })
