@@ -4,6 +4,10 @@ export const Wrapper = styled.header`
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: ${({ theme }) => theme.shadow.default};
   min-height: 70px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
   width: 100%;
 `
 

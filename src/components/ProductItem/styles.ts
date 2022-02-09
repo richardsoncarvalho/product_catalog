@@ -7,6 +7,7 @@ export const Container = styled.div`
   flex-flow: column nowrap;
   overflow: hidden;
   padding: 20px;
+  box-shadow: ${({ theme }) => theme.shadow.default};
 `;
 
 export const Content = styled.div``;

@@ -41,7 +41,7 @@ export default {
     rounded: '50%'
   },
   shadow: {
-    default: '0 0 15px rgba(255, 255, 255, 0.3)',
+    default: '0 0 15px rgba(160, 160, 160, 0.3)',
     light: '0 0 5px rgba(255, 255, 255, 0.3)',
   }
 }
