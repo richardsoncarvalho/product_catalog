@@ -22,8 +22,29 @@ export const ProductInfo = styled.span`
   font-size: 14px;
   font-family: 'Open Sans';
   padding: 10px;
+  position: relative;
 
   img {
     margin-right: 10px;
   }
 `;
+
+export const Button = styled.button`
+  background-color: ${({ theme }) => theme.colors.white};
+  color:  ${({ theme }) => theme.colors.red};
+  border: none;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+
+  svg {
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover svg {
+    height: 20px;
+    width: 20px;
+  }
+`

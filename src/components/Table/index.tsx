@@ -1,13 +1,15 @@
 
-import { Input } from '../Input';
-import { Container, Title, Rows, ProductInfo } from './styles';
+import { Container, Title, Rows, ProductInfo, Button } from './styles';
 import { transformNumberInCurrency } from '../../utils/transformNumberInCurrency';
 import { useCartProvider } from '../../hooks/useCartProvider';
 import { Product } from '../../providers/cart';
+import { Input } from '../Input';
+import { FiXCircle } from "react-icons/fi";
+
 
 export function Table() {
 
-  const { cart, onChangeValue } = useCartProvider()
+  const { cart, onChangeValue, removeProduct } = useCartProvider()
 
   return (
     <Container>
@@ -36,7 +38,13 @@ export function Table() {
               }} />
           </ProductInfo>
 
-          <ProductInfo>{transformNumberInCurrency(product.qtd * product.price)}</ProductInfo>
+          <ProductInfo>
+            {transformNumberInCurrency(product.qtd * product.price)}
+
+            <Button onClick={() => removeProduct(product.id)}>
+              <FiXCircle size={16} />
+            </Button>
+          </ProductInfo>
         </Rows>
       ))}
     </Container>

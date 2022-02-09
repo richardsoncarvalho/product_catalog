@@ -1,4 +1,4 @@
-import { createContext, useCallback, useMemo, useState } from 'react'
+import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
 import { Products } from '../../protocols/products';
 
 type CacheProviderProps = {
@@ -38,34 +38,20 @@ export function CartProvider({ children }: CacheProviderProps) {
         qtd: 1,
       }
 
-      const local = await localStorage.getItem(localStorageKey);
-      if (!local) {
-        await localStorage.setItem(localStorageKey, JSON.stringify([product]))
-      } else {
-        const products = await JSON.parse(localStorage.getItem(localStorageKey) as string)
-        await localStorage.setItem(localStorageKey, JSON.stringify([...products, product]))
-      }
       setCart(prev => ([...prev, product]));
     } catch (error) {
       console.error(error)
     }
   }, [])
 
+  const removeProduct = useCallback((id) => {
+    setCart(prev => {
+      return prev.filter(product => product.id !== id);
+    })
+  }, [])
+
   const onChangeValue = useCallback(async ({ id, qtd }) => {
     try {
-      const products = await JSON.parse(localStorage.getItem(localStorageKey) as string);
-      const update = products.map((product: Product) => {
-        if (product.id !== id) {
-          return product
-        }
-
-        return {
-          ...product,
-          qtd
-        }
-      })
-
-      await localStorage.setItem(localStorageKey, JSON.stringify(update));
       setCart(prev => prev.map((product: Product) => {
         if (product.id !== id) {
           return product
@@ -81,12 +67,18 @@ export function CartProvider({ children }: CacheProviderProps) {
     }
   }, [])
 
+  useEffect(() => {
+    (async () => {
+      await localStorage.setItem(localStorageKey, JSON.stringify(cart))
+    })()
+  }, [cart])
+
   const productIds = useMemo(() => {
     return cart.map(product => product.id)
   }, [cart])
 
   return (
-    <CartContext.Provider value={{cart, saveProduct, onChangeValue, productIds}}>
+    <CartContext.Provider value={{cart, saveProduct, removeProduct, onChangeValue, productIds}}>
       {children}
     </CartContext.Provider>
   )
