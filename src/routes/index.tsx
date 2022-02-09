@@ -4,7 +4,6 @@ import { Header } from '../components/Header'
 import { Home } from '../pages/Home'
 import { Cart } from '../pages/Cart'
 import { Container } from './styles'
-import { ProductProvider } from '../providers/products'
 
 export function Routes() {
   return (
@@ -15,11 +14,7 @@ export function Routes() {
         <Switch>
           <Route
             path="/"
-            element={
-              <ProductProvider>
-                <Home />
-              </ProductProvider>
-            } />
+            element={ <Home /> } />
 
           <Route path="/cart" element={<Cart />} />
         </Switch>
