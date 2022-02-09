@@ -4,6 +4,7 @@ export type Props = {
   primary?: boolean;
   rounded?: boolean;
   radius?: boolean;
+  success?: boolean;
 }
 
 export const Container = styled.button<Props>`
@@ -19,6 +20,11 @@ export const Container = styled.button<Props>`
 
   ${({ primary, theme }) => primary && `
     background: ${theme.colors.red};
+    color: ${theme.colors.white};
+  `}
+
+  ${({ success, theme }) => success && `
+    background: ${theme.colors.green};
     color: ${theme.colors.white};
   `}
 
