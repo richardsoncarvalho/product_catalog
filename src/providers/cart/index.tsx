@@ -51,12 +51,42 @@ export function CartProvider({ children }: CacheProviderProps) {
     }
   }, [])
 
+  const onChangeValue = useCallback(async ({ id, qtd }) => {
+    try {
+      const products = await JSON.parse(localStorage.getItem(localStorageKey) as string);
+      const update = products.map((product: Product) => {
+        if (product.id !== id) {
+          return product
+        }
+
+        return {
+          ...product,
+          qtd
+        }
+      })
+
+      await localStorage.setItem(localStorageKey, JSON.stringify(update));
+      setCart(prev => prev.map((product: Product) => {
+        if (product.id !== id) {
+          return product
+        }
+
+        return {
+          ...product,
+          qtd
+        }
+      }))
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
+
   const productIds = useMemo(() => {
     return cart.map(product => product.id)
   }, [cart])
 
   return (
-    <CartContext.Provider value={{cart, saveProduct, productIds}}>
+    <CartContext.Provider value={{cart, saveProduct, onChangeValue, productIds}}>
       {children}
     </CartContext.Provider>
   )

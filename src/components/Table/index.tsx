@@ -7,7 +7,7 @@ import { Product } from '../../providers/cart';
 
 export function Table() {
 
-  const { cart } = useCartProvider()
+  const { cart, onChangeValue } = useCartProvider()
 
   return (
     <Container>
@@ -27,7 +27,13 @@ export function Table() {
           <ProductInfo>{transformNumberInCurrency(product.price)}</ProductInfo>
 
           <ProductInfo>
-            <Input type="number" value={product.qtd} />
+            <Input
+              type="number"
+              min={1}
+              value={product.qtd}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                onChangeValue({ id: product.id, qtd: +e.target.value })
+              }} />
           </ProductInfo>
 
           <ProductInfo>{transformNumberInCurrency(product.qtd * product.price)}</ProductInfo>
