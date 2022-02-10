@@ -1,4 +1,5 @@
 import { Card } from "../../components/Card";
+import { Order } from "../../components/Order";
 import { Table } from "../../components/Table";
 import { Container } from "./styles";
 
@@ -10,7 +11,7 @@ export function Cart() {
       </Card>
 
       <Card>
-        <h1>Teste</h1>
+        <Order />
       </Card>
     </Container>
   );

@@ -4,6 +4,7 @@ import { Link, LinkProps } from "react-router-dom";
 export type Props = LinkProps & {
   rounded?: boolean
   hover?: boolean
+  background?: string
 }
 
 export const Container = styled(Link)<Props>`
@@ -19,6 +20,14 @@ export const Container = styled(Link)<Props>`
   position: relative;
 
   ${({ rounded, theme }) => rounded && `border-radius: ${theme.radius.rounded}`};
+
+  ${({ background, theme }) => background && `
+    background-color: ${background};
+    color: ${theme.colors.white};
+    font-family: 'Roboto';
+    border-radius: ${theme.radius.default};
+    padding: 15px 0;
+  `};
 
   ${({ hover, theme }) => hover && `
     &:hover {

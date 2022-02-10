@@ -77,8 +77,20 @@ export function CartProvider({ children }: CacheProviderProps) {
     return cart.map(product => product.id)
   }, [cart])
 
+  const totalValueProduct = useMemo(() => {
+    return cart.reduce((prevTotal, product) => {
+      return prevTotal + (product.price * product.qtd)
+    }, 0)
+  }, [cart])
+
+  const totalProduct = useMemo(() => {
+    return cart.reduce((prevTotal, product) => {
+      return prevTotal + product.qtd
+    }, 0)
+  }, [cart])
+
   return (
-    <CartContext.Provider value={{cart, saveProduct, removeProduct, onChangeValue, productIds}}>
+    <CartContext.Provider value={{cart, saveProduct, removeProduct, onChangeValue, productIds, totalValueProduct, totalProduct}}>
       {children}
     </CartContext.Provider>
   )
