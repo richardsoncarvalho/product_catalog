@@ -2,6 +2,10 @@
 
 Desenvolver um loja simples em React utilizando Typescript, com um catálogo de produtos e um carrinho de compras. O usuário deve poder adicionar/remover produtos do catálogo no carrinho de compras.
 
+## Sobre escrever inglês ou português
+
+Como esse teste vai ser avaliado por brasileiros, achei melhor em português onde posso mostrar o que realmente criei
+
 ## Pontos feito no projeto
 
 - Tela de Produtos
