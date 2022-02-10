@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event';
 import { ProductItem } from '../../components/ProductItem';
 import { MockWithProvider } from '../../mocks/mockWithProvider';
 import { Products } from '../../protocols/products';
-import { useCartProvider } from '../../hooks/useCartProvider';
 
 const product: Products = {
   id: 1,
