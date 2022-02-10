@@ -3,16 +3,25 @@ import { ProductItem } from '../../components/ProductItem/index';
 import { ListProducts } from './styles';
 import { Products } from '../../protocols/products';
 
+import { WrapperBlank } from '../../components/Blank/styles';
+import { FiShoppingBag } from "react-icons/fi";
+
 import Services from './services';
 
 export function Home() {
   const {
     data,
-    isLoading
+    isLoading,
+    isFetching
   } = useQuery<Products[]>('products', () => Services.getProducts(), { initialData: [] });
 
-  if (isLoading) {
-    return <h2>Loading...</h2>
+  if (isLoading || isFetching) {
+    return (
+      <WrapperBlank>
+        <FiShoppingBag size={32} />
+        carregando...
+      </WrapperBlank>
+    )
   }
 
   return (
