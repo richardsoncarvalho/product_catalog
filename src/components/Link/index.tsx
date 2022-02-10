@@ -4,9 +4,9 @@ type RouterLinkProps = Props & {
   children?: JSX.Element | string
 }
 
-export function Link({ children = "my link", rounded, hover, ...args }: RouterLinkProps) {
+export function Link({ children, ...args }: RouterLinkProps) {
   return (
-      <Container rounded={rounded} hover={hover} {...args}>
+      <Container {...args}>
         {children}
       </Container>
   );
